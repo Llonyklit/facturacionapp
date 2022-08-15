@@ -7,7 +7,7 @@
 @section('content')
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-    
+
     <script type="text/javascript">
 
         var buscar_cliente_url = "{{ url('clientes/buscar?texto=') }}";
@@ -32,7 +32,7 @@
             $.each(inputs, function (i, input) {
                 formObj[input.name] = input.value;
             });
-            
+
             alert('ingresa');
 
             var identificacion2 = formObj['identificacion2'];
@@ -253,7 +253,7 @@
                                     <th class="text-center" width="80px">Subtotal</th>
                                     <th class="text-center" width="80px">IVA</th>
                                     <th class="text-center" width="100px">Total</th>
-                                    
+
                                 </tr>
                                 </thead>
                                 <tbody id="tablaProductos">
@@ -595,7 +595,7 @@
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                             <input type="email" name="correo" style="display: none">
-                                            <input type="email" title="Correo" required="" maxlength="255" class="form-control" name="correo" id="correo" value="">
+                                            <input type="email" title="Correo" required="" placeholder="Ingrese el correo"  maxlength="255" class="form-control" name="correo" id="correo" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -607,7 +607,7 @@
                                     </label>
 
                                     <div class="col-sm-8">
-                                        <input type="number" step="1" title="Teléfono" required="" min="1" class="form-control" name="telefono" id="telefono" value="">
+                                        <input type="number" step="1" title="Teléfono" required="" placeholder="Ingrese el telefono"  min="1" class="form-control" name="telefono" id="telefono" value="">
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
                                     </div>
@@ -617,7 +617,7 @@
                                         <span class="text-danger" title="Este campo es requerido">*</span>
                                     </label>
                                     <div class="col-sm-8">
-                                        <textarea name="direccion" id="direccion" required="" maxlength="255" class="form-control" rows="2"></textarea>
+                                        <textarea name="direccion" id="direccion" required="" placeholder="Ingrese la direccion"  maxlength="255" class="form-control" rows="2"></textarea>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
                                     </div>
@@ -641,19 +641,58 @@
     $("#formNuevoCliente").validate({
 
         rules:{
-        
+
           nombres:{
+            required:true
+          },
+          tipo:{
+            required:true
+          },
+          identificacion2:{
+            required:true
+          },
+          direccion:{
+            required:true
+          },
+          telefono:{
+            required:true
+          },
+          correo:{
             required:true
           }
         },
         messages:{
-          
+
           nombres:{
             required:"Ingrese el  nombre"
+          },
+          tipo:{
+            required:"Ingrese el  tipo"
+          },
+          identificacion2:{
+            required:"Ingrese la identificación"
+          },
+          direccion:{
+            required:"Ingrese la direccion"
+          },
+          telefono:{
+            required:"Ingrese el telefono"
+          },
+          correo:{
+            required:"Ingrese el correo"
           }
 
         }
       });
 
         </script>
+        <style media="screen">
+            .error{
+              color:red;
+              font-size: 16px;
+            }
+            input.error, select.error{
+              border: 2px solid red;
+            }
+        </style>
 @endsection

@@ -18,11 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
+
 });
+
 
 Route::get('/clientes/buscar', [AdminClientesController::class, 'buscar']);
 Route::get('/clientes/buscar_consumidor_final', [AdminClientesController::class, 'buscarConsumidorFinal']);
 Route::get('/productos/buscar', [AdminProductosController::class, 'buscar']);
 Route::get('/facturas/imprimir/{facturaId}',[AdminFacturasController::class, 'imprimir']);
 Route::get('/facturas/registrar/cliente',[AdminFacturasController::class, 'registrarCliente']);
-
